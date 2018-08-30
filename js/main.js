@@ -22,7 +22,7 @@ function writeMarkdown(markdown,fn){
     let id = setInterval(() => {
         n += 1 
         domPaper.innerHTML =  markdown.substring(0, n)
-        domPaper.scrollTop = 10000//domPaper.scrollHeight
+        domPaper.scrollTop = domPaper.scrollHeight
         //console.log(domPaper)
         if (n >= markdown.length) {
             window.clearInterval(id)
@@ -31,6 +31,18 @@ function writeMarkdown(markdown,fn){
     }, 0)
 }
 
+
+function creatPaper(fn) {
+    
+    var paper = document.createElement('div')
+    paper.id = 'paper'    
+    var content = document.createElement('pre')
+    content.className = 'content'
+    paper.appendChild(content)
+    document.body.appendChild(paper)
+    fn.call()
+
+}
 
 var result = `
 /* 
@@ -89,11 +101,7 @@ var result = `
 
 }
 #paper > .content{
-    background:white; 
-    width:100%;
-    height:100%;
-    padding-left:16px;
-   
+    display:block;
 }
 `
 var result2 = `
@@ -133,17 +141,7 @@ XXX学校毕业
 - 手机:15215210604
 
 `
-function creatPaper(fn) {
-    
-    var paper = document.createElement('div')
-    paper.id = 'paper'    
-    var content = document.createElement('pre')
-    content.className = 'content'
-    paper.appendChild(content)
-    document.body.appendChild(paper)
-    fn.call()
 
-}
 
 writeCode('',result,()=>{    //writeCode callback the function
     creatPaper(()=>{
