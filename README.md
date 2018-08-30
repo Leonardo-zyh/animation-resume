@@ -1,4 +1,4 @@
-
+hj
 #异步回调
 /*函数中会设置可执行函数调用的参数*/
 function writeCode(fn){
