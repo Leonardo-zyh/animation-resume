@@ -28,7 +28,7 @@ function writeMarkdown(markdown,fn){
             window.clearInterval(id)
             fn.call()
         }
-    }, 100)
+    }, 0)
 }
 
 
@@ -133,24 +133,8 @@ XXX学校毕业
 - 手机:15215210604
 
 `
-
-
-writeCode('',result,()=>{    //writeCode callback the function
-    creatPaper(()=>{
-        writeCode(result,result2,()=>{
-            writeMarkdown(md,()=>{
-                markdownToHTML(()=>{
-                    write(result+result2,result3)
-                })
-            })
-        })
-    })
-})//定闹钟：10秒后开始执行第一行代码
-//异步：【不等结果】直接进行下一步
-//回调：拿到异步的一种方式
-//定闹钟；writeCode返回；执行fn()；时间到执行代码
-
 function creatPaper(fn) {
+    
     var paper = document.createElement('div')
     paper.id = 'paper'    
     var content = document.createElement('pre')
@@ -160,3 +144,19 @@ function creatPaper(fn) {
     fn.call()
 
 }
+
+writeCode('',result,()=>{    //writeCode callback the function
+    creatPaper(()=>{
+        writeCode(result,result2,()=>{
+            writeMarkdown(md,()=>{
+                /*markdownToHTML(()=>{
+                    write(result+result2,result3)
+                })*/
+            })
+        })
+    })
+})//定闹钟：10秒后开始执行第一行代码
+//异步：【不等结果】直接进行下一步
+//回调：拿到异步的一种方式
+//定闹钟；writeCode返回；执行fn()；时间到执行代码
+
