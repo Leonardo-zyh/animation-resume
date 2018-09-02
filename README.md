@@ -1,4 +1,4 @@
-hj
+
 #异步回调
 /*函数中会设置可执行函数调用的参数*/
 function writeCode(fn){
@@ -23,5 +23,6 @@ promise.then(success,error)
 
 
 #注意：
-设置overflow: hidden才能使用页面滑动
+设置
+height:100%;overflow: hidden  才能使用页面滑动
 domCode.scrollTop = domCode.scrollHeight
