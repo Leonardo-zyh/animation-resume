@@ -94,7 +94,7 @@ var css1 = `
 
 /* 加一点呼吸效果吧 */
 #code{
-    animation: breath 0.5s infinite alternate-reverse;
+    animation: breath 0.7s infinite alternate-reverse;
 }
 
 /* 我来介绍一下我自己吧 */
